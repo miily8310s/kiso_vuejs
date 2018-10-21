@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <ul>
+            <button v-on:click="doAdd">モンスターを追加</button>
+            <button v-on:click="doRemove(index)">モンスターを削除</button>
+            <li v-for="(item,index) in list" v-bind:key="item.id" v-if="item.hp">
+                ID.{{item.id}} {{item.name}} HP.{{item.hp}}
+                <span v-if="item.hp > 300">つよい！</span>
+                <span v-if="item.hp < 50">瀕死！</span>
+                <button v-on:click="doAttack(index)">攻撃する</button>
+            </li>
+            <!--HPが300以下のモンスターのみ表示-->
+            <li v-for="item in list" v-bind:key="item.id" v-if="item.hp < 300">
+                ID.{{item.id}} {{item.name}} HP.{{item.hp}}
+            </li>
+        </ul>
+        <span v-for="item in 15">{{item}}</span>
+        <span v-for="item in text">{{item}}</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Ajaxライブラリのaxiosを利用するためにaxios.min.jsを読み込む-->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
