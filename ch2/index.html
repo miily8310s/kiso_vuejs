@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <p>{{message.value}}</p>
+        <p>{{message.value.length}}</p>
+        <p>{{message.length >= 10 ? "10文字以上" : "10文字未満"}}</p>
+        <p>{{Math.round(3.14)}}</p>
+        <!--<input type="text" value={{ message.value}}>とは書けない-->
+        <input type="text" v-bind:value="message.value">
+        <p>{{list[2]}}</p>
+        <p>{{list[num]}}</p>
+        <p>{{count}}回クリックしたよ！</p>
+        <button v-on:click="increment">カウントを増やす</button>
+        <button v-on:click="isActive=!isActive">isActiveを切り替える</button>
+        <!--<p class="child is-active item">動的なクラス</p>と意味は同じ-->
+        <p v-bind:class="{ child: isChild, 'is-active': isActive }" class="item">
+            動的なクラス
+        </p>
+        <p v-bind:style="{ color: textColor, backgroundColor: bgColor }" class="item">
+            動的なスタイル
+        </p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <!--SVG の基本的な図形を表すものであり、中心座標と半径を指定して円を描画する。-->>
+            <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+        </svg>
+        <input type="range" min="0" max="100" v-model="radius">
+        <!--v-if条件の要素は条件を満たさなかった場合、DOMレベルで削除される-->
+        <div v-if="ok">v-if条件による描画</div>
+        <!--v-show条件の要素は条件を満たさなかった場合、disply:noneスタイルが付与される-->
+        <div v-show="ok">v-show条件による描画</div>
+        <div v-if="type === 'A'">
+            typeはA
+        </div>
+        <div v-else-if="type === 'B'">
+            typeはB
+        </div>
+        <div v-else>
+            すべての条件を満たさなかった
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
