@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <input v-model="message">
+        <p>{{ message }}</p>
+        <textarea v-model="message1"></textarea>
+        <pre>{{ message1 }}</pre>
+        <label>
+            <input type="checkbox" v-model="val"> {{ val }}
+        </label>
+        <br>
+        <label><input type="checkbox" v-model = "val1" value="A">A</label>
+        <label><input type="checkbox" v-model = "val1" value="B">B</label>
+        <label><input type="checkbox" v-model = "val1" value="C">C</label>
+        <p>{{ val1 }}</p>
+        <!-- rangeの最大値は100まで-->
+        <input type="range" v-model.number="num"> {{ num }}
+        <div class="content">...</div>
+        <div v-on:click="scrollTop">
+            ページ上部へ移動
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5"></script>
+    <script src="main.js"></script>
+</body>
+</html>
