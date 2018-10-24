@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <comp-child val="これは子A"></comp-child>
+        <comp-child val="これは子B"></comp-child>
+        <ul>
+            <list-child v-for="item in list"
+               v-bind:id="item.id"
+               v-bind:name="item.name"
+               v-bind:hp="item.hp"></list-child>
+        </ul>
+        <event-child v-on:childs-event="parentsMethod"></event-child>
+        <my-component v-bind:name.sync="name" v-bind:hp.sync="hp"></my-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
