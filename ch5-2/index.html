@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <button v-on:click="current^=1">toggle</button>
+        <div v-bind:is="component"></div>
+        <button v-on:click="current='comp-board'">メッセージ一覧</button>
+        <button v-on:click="current='comp-form'">投稿フォーム</button>
+        <div v-bind:is="current"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
