@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="show=!show">切り替え1</button>
+        <transition>
+            <div v-show="show">トランジションさせたい要素</div>
+        </transition>
+        <!--ページが表示された瞬間トランジションが発生するバージョン-->
+        <transition appear>
+            <div v-if="show">example</div>
+        </transition>
+        <button v-on:click="order=!order">切り替え2</button>
+        <transition-group tag="ul" class="list">
+            <li v-for="item in sortedList" v-bind:key="item.id">
+                {{ item.name }} {{ item.price }}円
+            </li>
+        </transition-group>
+        <button v-on:click="toggle=!toggle">切り替え3</button>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <!-- SVGのパーツにトランジションを適用 -->
+            <transition>
+                <my-circle v-bind:fill="fill" v-bind:key="fill"></my-circle>
+            </transition>
+        </svg>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
